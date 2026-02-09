@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const problems = [
   {
@@ -63,74 +64,130 @@ const solutions = [
   }
 ];
 
-const ProblemCard = ({ problem }) => {
+const ProblemCard = ({ problem, index }) => {
   return (
-    <div className="glass-card p-6 hover:border-red-500/30 transition-all duration-300 group">
-      <div className="w-14 h-14 bg-red-500/10 rounded-xl flex items-center justify-center mb-4 text-red-400 group-hover:scale-110 transition-transform">
-        {problem.icon}
+    <motion.div 
+      className="glass-card-premium p-8 hover-lift relative overflow-hidden group"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+    >
+      {/* Triangle Accent */}
+      <div className="absolute bottom-0 right-0 triangle triangle-up opacity-[0.15] group-hover:opacity-25 transition-opacity" style={{ borderColor: 'transparent transparent #ef4444 transparent' }} />
+      
+      <div className="relative z-10">
+        <div className="w-16 h-16 bg-red-500/20 rounded-2xl flex items-center justify-center mb-6 text-red-400 group-hover:scale-110 transition-transform backdrop-blur-sm border border-red-500/30">
+          {problem.icon}
+        </div>
+        <h3 className="text-2xl font-bold text-white mb-3">{problem.title}</h3>
+        <p className="text-gray-400 mb-4 leading-relaxed">{problem.description}</p>
+        <p className="text-sm text-red-400 font-semibold inline-block px-4 py-2 bg-red-500/10 rounded-lg border border-red-500/20">
+          {problem.impact}
+        </p>
       </div>
-      <h3 className="text-xl font-semibold text-white mb-2">{problem.title}</h3>
-      <p className="text-gray-400 mb-4">{problem.description}</p>
-      <p className="text-sm text-red-400 font-medium">{problem.impact}</p>
-    </div>
+    </motion.div>
   );
 };
 
 const Problems = () => {
   return (
-    <div className="py-20 px-4">
-      <div className="max-w-6xl mx-auto">
+    <div className="relative py-24 px-4 overflow-hidden">
+      {/* Decorative Triangles */}
+      <div className="triangle triangle-down-lg animate-float-1" style={{ top: '10%', right: '8%' }} />
+      <div className="triangle triangle-up animate-float-2" style={{ top: '50%', left: '5%' }} />
+      <div className="triangle triangle-down animate-float-3" style={{ bottom: '20%', right: '15%' }} />
+      
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="section-title">
+        <motion.div 
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <motion.div
+            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-lg border border-red-500/30 rounded-full px-6 py-2 mb-8"
+            initial={{ opacity: 0, scale:0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <span className="text-sm font-semibold text-red-400">The Challenge</span>
+          </motion.div>
+          
+          <h1 className="section-title mb-6">
             The Problems We
-            <span className="block text-red-400">Solve</span>
+            <span className="block bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent">Solve</span>
           </h1>
-          <p className="section-subtitle mx-auto">
-            Traditional inventory management methods leave businesses vulnerable to these 
-            common challenges.
+          <p className="section-subtitle mx-auto text-gray-400">
+            Traditional inventory management methods leave businesses vulnerable to these common challenges
           </p>
-        </div>
+        </motion.div>
 
         {/* Problems Grid */}
-        <div className="grid md:grid-cols-2 gap-6 mb-20">
+        <div className="grid md:grid-cols-2 gap-8 mb-32">
           {problems.map((problem, index) => (
-            <ProblemCard key={index} problem={problem} />
+            <ProblemCard key={index} problem={problem} index={index} />
           ))}
         </div>
 
         {/* How Naba Helps */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            How <span className="text-accent">Naba</span> Helps
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-black mb-6">
+            How <span className="gradient-text">Naba</span> Helps
           </h2>
-          <p className="section-subtitle mx-auto">
-            Our AI-powered platform addresses these challenges head-on with intelligent solutions.
+          <p className="section-subtitle mx-auto text-gray-400">
+            Our AI-powered platform addresses these challenges head-on with intelligent solutions
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 gap-6 mb-16">
           {solutions.map((solution, index) => (
-            <div key={index} className="glass-card p-6 hover:border-accent/30 transition-all duration-300 flex items-start gap-4">
-              <div className="w-8 h-8 bg-accent/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            <motion.div 
+              key={index} 
+              className="glass-card p-8 hover-lift flex items-start gap-5 group"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <div className="w-10 h-10 bg-accent-primary/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                <svg className="w-6 h-6 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
               <div>
-                <h4 className="text-lg font-semibold text-white mb-1">{solution.title}</h4>
-                <p className="text-gray-400">{solution.description}</p>
+                <h4 className="text-xl font-bold text-white mb-2">{solution.title}</h4>
+                <p className="text-gray-400 leading-relaxed">{solution.description}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="text-center">
-          <Link to="/" className="btn-primary inline-block">
-            Explore Our Features
+        <motion.div 
+          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <Link to="/">
+            <motion.button 
+              className="btn-primary text-lg"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Explore Our Features
+            </motion.button>
           </Link>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

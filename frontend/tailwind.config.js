@@ -33,6 +33,11 @@ export default {
           700: '#7a5a05',
           800: '#5c4304',
           900: '#3d2c03',
+          // Additional named variations for design system
+          'primary': '#fbbf24',    // yellow-400
+          'light': '#fcd34d',      // yellow-300
+          'dark': '#f59e0b',       // amber-500
+          'deep': '#d97706',       // orange-600
         }
       },
       fontFamily: {

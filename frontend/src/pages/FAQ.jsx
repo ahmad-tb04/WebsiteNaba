@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const faqData = [
   {
@@ -31,51 +32,95 @@ const faqData = [
   }
 ];
 
-const FAQItem = ({ question, answer, isOpen, onClick }) => {
+const FAQItem = ({ question, answer, isOpen, onClick, index }) => {
   return (
-    <div className="glass-card overflow-hidden mb-4">
+    <motion.div 
+      className="glass-card overflow-hidden mb-4 border-2 border-white/10 hover:border-accent-primary/30 transition-all duration-300"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
+    >
       <button
         onClick={onClick}
-        className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-white/5 transition-colors"
+        className="w-full px-8 py-6 flex items-center justify-between text-left hover:bg-white/5 transition-colors group"
       >
-        <span className="text-lg font-medium text-white pr-4">{question}</span>
-        <svg 
-          className={`w-5 h-5 text-accent flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
-          fill="none" 
-          stroke="currentColor" 
-          viewBox="0 0 24 24"
+        <span className="text-lg font-bold text-white pr-4 group-hover:text-accent-light transition-colors">{question}</span>
+        <motion.div
+          className="w-10 h-10 bg-gradient-to-br from-accent-primary to-accent-deep rounded-xl flex items-center justify-center flex-shrink-0"
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
+          <svg 
+            className="w-5 h-5 text-navy-900" 
+            fill="none" 
+            stroke="currentColor" 
+            strokeWidth={3}
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </motion.div>
       </button>
-      <div 
-        className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96' : 'max-h-0'}`}
-      >
-        <div className="px-6 pb-5 text-gray-400 border-t border-white/10 pt-4">
-          {answer}
-        </div>
-      </div>
-    </div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <div className="px-8 pb-6 text-gray-400 border-t border-white/10 pt-6 leading-relaxed bg-white/5">
+              {answer}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 };
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
-  return (
-    <div className="py-20 px-4">
-      <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-16">
-          <h1 className="section-title">
-            Frequently Asked
-            <span className="block text-accent">Questions</span>
-          </h1>
-          <p className="section-subtitle mx-auto">
-            Everything you need to know about Naba and how it can help your business.
-          </p>
-        </div>
+  const handleContactSupport = () => {
+    window.location.href = 'mailto:ahmad@naba-jo.com';
+  };
 
-        <div className="space-y-2">
+  return (
+    <div className="relative py-24 px-4 overflow-hidden">
+      {/* Decorative Triangles */}
+      <div className="triangle triangle-up-lg animate-float-1" style={{ top: '8%', right: '10%' }} />
+      <div className="triangle triangle-down animate-float-2" style={{ top: '45%', left: '8%' }} />
+      <div className="triangle triangle-up animate-float-3" style={{ bottom: '15%', right: '12%' }} />
+      
+      <div className="max-w-4xl mx-auto">
+        <motion.div 
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <motion.div
+            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-lg border border-accent-primary/30 rounded-full px-6 py-2 mb-8"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <span className="text-sm font-semibold text-accent-primary">Got Questions?</span>
+          </motion.div>
+          
+          <h1 className="section-title mb-6">
+            Frequently Asked
+            <span className="block gradient-text">Questions</span>
+          </h1>
+          <p className="section-subtitle mx-auto text-gray-400">
+            Everything you need to know about Naba and how it can help your business
+          </p>
+        </motion.div>
+
+        <div className="space-y-3 mb-20">
           {faqData.map((faq, index) => (
             <FAQItem
               key={index}
@@ -83,19 +128,46 @@ const FAQ = () => {
               answer={faq.answer}
               isOpen={openIndex === index}
               onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
+              index={index}
             />
           ))}
         </div>
 
-        <div className="mt-16 glass-card-light p-8 text-center">
-          <h3 className="text-xl font-semibold mb-3">Still have questions?</h3>
-          <p className="text-gray-400 mb-6">
-            Can't find the answer you're looking for? Please reach out to our team.
-          </p>
-          <button className="btn-primary">
-            Contact Support
-          </button>
-        </div>
+        <motion.div 
+          className="glass-card-premium p-12 text-center relative overflow-hidden"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          {/* Background Pattern */}
+          <div className="absolute inset-0 triangle-pattern opacity-20" />
+          
+          {/* Gradient Accents */}
+          <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-accent-primary/20 to-transparent rounded-full blur-2xl" />
+          <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-blue-500/20 to-transparent rounded-full blur-2xl" />
+          
+          <div className="relative z-10">
+            <div className="w-16 h-16 bg-gradient-to-br from-accent-primary to-accent-deep rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <svg className="w-8 h-8 text-navy-900" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            
+            <h3 className="text-3xl font-black mb-4">Still have questions?</h3>
+            <p className="text-gray-400 mb-8 text-lg">
+              Can't find the answer you're looking for? Please reach out to our team
+            </p>
+            <motion.button 
+              className="btn-primary"
+              onClick={handleContactSupport}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Contact Support
+            </motion.button>
+          </div>
+        </motion.div>
       </div>
     </div>
   );
