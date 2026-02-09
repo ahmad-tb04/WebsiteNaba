@@ -10,22 +10,22 @@
   --navy-light: #1a2332;
   --navy-dark: #080d19;
   --navy-accent: #2d3d5f;
-  
+
   /* Yellow/Gold Palette */
   --accent-primary: #fbbf24;
   --accent-light: #fcd34d;
   --accent-dark: #f59e0b;
   --accent-deep: #d97706;
-  
+
   /* Gradient Colors */
   --gradient-yellow-start: #fbbf24;
   --gradient-yellow-mid: #f59e0b;
   --gradient-yellow-end: #d97706;
-  
+
   --gradient-blue-start: #1e3a8a;
   --gradient-blue-mid: #1e40af;
   --gradient-blue-end: #2563eb;
-  
+
   /* Effect Colors */
   --glow-yellow: rgba(251, 191, 36, 0.4);
   --glow-blue: rgba(59, 130, 246, 0.3);
@@ -57,17 +57,17 @@ body {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   .glass-card:hover {
     @apply border-white/20;
     box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
   }
-  
+
   .glass-card-light {
     @apply bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
   }
-  
+
   .glass-card-premium {
     @apply bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-2xl border border-white/20 rounded-3xl;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(251, 191, 36, 0.1) inset;
@@ -75,18 +75,15 @@ body {
 
   /* Premium Buttons */
   .btn-primary {
-    @apply bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-600 
-           text-gray-900 font-bold px-8 py-4 rounded-2xl 
-           transition-all duration-300 hover:shadow-2xl
-           relative overflow-hidden;
+    @apply bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-600 text-gray-900 font-bold px-8 py-4 rounded-2xl transition-all duration-300 hover:shadow-2xl relative overflow-hidden;
     box-shadow: 0 8px 24px rgba(251, 191, 36, 0.4);
   }
-  
+
   .btn-primary:hover {
     @apply -translate-y-1 scale-105;
     box-shadow: 0 12px 32px rgba(251, 191, 36, 0.4);
   }
-  
+
   .btn-primary::before {
     content: '';
     position: absolute;
@@ -97,60 +94,54 @@ body {
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
     transition: left 0.5s;
   }
-  
+
   .btn-primary:hover::before {
     left: 100%;
   }
 
   .btn-outline {
-    @apply border-2 border-yellow-400 text-yellow-400 font-bold px-8 py-4 rounded-2xl
-           transition-all duration-300 hover:bg-yellow-400 hover:text-gray-900
-           hover:shadow-2xl relative overflow-hidden;
+    @apply border-2 border-yellow-400 text-yellow-400 font-bold px-8 py-4 rounded-2xl transition-all duration-300 hover:bg-yellow-400 hover:text-gray-900 hover:shadow-2xl relative overflow-hidden;
   }
-  
+
   .btn-outline:hover {
     box-shadow: 0 8px 24px rgba(251, 191, 36, 0.4);
   }
-  
+
   .btn-glass {
-    @apply bg-white/10 backdrop-blur-lg border border-white/20 text-white font-semibold 
-           px-8 py-4 rounded-2xl transition-all duration-300 hover:bg-white/20
-           hover:border-yellow-400/50;
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:bg-white/20 hover:border-yellow-400/50;
   }
 
   /* Typography */
   .section-title {
     @apply text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight;
   }
-  
+
   .gradient-text {
-    @apply bg-gradient-to-r from-yellow-300 via-yellow-400 to-orange-600 
-           bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-yellow-300 via-yellow-400 to-orange-600 bg-clip-text text-transparent;
   }
-  
+
   .gradient-text-blue {
-    @apply bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 
-           bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent;
   }
 
   .section-subtitle {
     @apply text-lg md:text-xl text-gray-300 max-w-3xl;
   }
-  
+
   /* Gradient Backgrounds */
   .gradient-bg-yellow {
     background: linear-gradient(135deg, var(--gradient-yellow-start) 0%, var(--gradient-yellow-end) 100%);
   }
-  
+
   .gradient-bg-radial {
     background: radial-gradient(circle at top right, rgba(251, 191, 36, 0.15), transparent 50%),
-                radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.1), transparent 50%);
+      radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.1), transparent 50%);
   }
-  
+
   .gradient-border {
     position: relative;
     background: linear-gradient(var(--navy-primary), var(--navy-primary)) padding-box,
-                linear-gradient(135deg, var(--accent-primary), var(--accent-deep)) border-box;
+      linear-gradient(135deg, var(--accent-primary), var(--accent-deep)) border-box;
     border: 2px solid transparent;
   }
 }
@@ -164,6 +155,8 @@ body {
   opacity: 0.08;
   pointer-events: none;
   z-index: 0;
+  will-change: transform, opacity;
+  transform: translateZ(0);
 }
 
 .triangle-up {
@@ -213,7 +206,7 @@ body {
 
 /* Triangle Pattern Background */
 .triangle-pattern {
-  background-image: 
+  background-image:
     linear-gradient(30deg, transparent 0%, transparent 48%, var(--accent-primary) 49%, var(--accent-primary) 51%, transparent 52%, transparent 100%),
     linear-gradient(-30deg, transparent 0%, transparent 48%, var(--accent-primary) 49%, var(--accent-primary) 51%, transparent 52%, transparent 100%);
   background-size: 60px 104px;
@@ -222,10 +215,13 @@ body {
 
 /* Advanced Animations */
 @keyframes floatUp {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg);
     opacity: 0.06;
   }
+
   50% {
     transform: translateY(-30px) rotate(5deg);
     opacity: 0.15;
@@ -233,10 +229,13 @@ body {
 }
 
 @keyframes floatDown {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg);
     opacity: 0.08;
   }
+
   50% {
     transform: translateY(25px) rotate(-3deg);
     opacity: 0.14;
@@ -244,10 +243,13 @@ body {
 }
 
 @keyframes gentlePulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.06;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.15;
     transform: scale(1.08);
@@ -259,6 +261,7 @@ body {
     opacity: 0;
     transform: translateX(-50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -270,6 +273,7 @@ body {
     opacity: 0;
     transform: translateX(50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -281,6 +285,7 @@ body {
     opacity: 0;
     transform: scale(0.8);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -292,6 +297,7 @@ body {
     opacity: 0;
     transform: translateY(40px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -299,18 +305,24 @@ body {
 }
 
 @keyframes gradientShift {
-  0%, 100% {
+
+  0%,
+  100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
 }
 
 @keyframes glow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 20px var(--glow-yellow);
   }
+
   50% {
     box-shadow: 0 0 40px var(--glow-yellow), 0 0 60px var(--glow-yellow);
   }
@@ -320,18 +332,41 @@ body {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
 /* Animation Classes */
-.animate-float-1 { animation: floatUp 20s ease-in-out infinite; }
-.animate-float-2 { animation: floatDown 25s ease-in-out infinite; animation-delay: -5s; }
-.animate-float-3 { animation: floatUp 22s ease-in-out infinite; animation-delay: -10s; }
-.animate-float-4 { animation: floatDown 28s ease-in-out infinite; animation-delay: -7s; }
-.animate-float-5 { animation: gentlePulse 18s ease-in-out infinite; animation-delay: -3s; }
-.animate-float-6 { animation: floatUp 24s ease-in-out infinite; animation-delay: -12s; }
+.animate-float-1 {
+  animation: floatUp 20s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: floatDown 25s ease-in-out infinite;
+  animation-delay: -5s;
+}
+
+.animate-float-3 {
+  animation: floatUp 22s ease-in-out infinite;
+  animation-delay: -10s;
+}
+
+.animate-float-4 {
+  animation: floatDown 28s ease-in-out infinite;
+  animation-delay: -7s;
+}
+
+.animate-float-5 {
+  animation: gentlePulse 18s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+.animate-float-6 {
+  animation: floatUp 24s ease-in-out infinite;
+  animation-delay: -12s;
+}
 
 .fade-in-up {
   animation: fadeInUp 0.8s ease-out forwards;
@@ -412,6 +447,7 @@ body {
   from {
     transform: translateX(100%);
   }
+
   to {
     transform: translateX(0);
   }

@@ -34,7 +34,7 @@ const faqData = [
 
 const FAQItem = ({ question, answer, isOpen, onClick, index }) => {
   return (
-    <motion.div 
+    <motion.div
       className="glass-card overflow-hidden mb-4 border-2 border-white/10 hover:border-accent-primary/30 transition-all duration-300"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -51,10 +51,10 @@ const FAQItem = ({ question, answer, isOpen, onClick, index }) => {
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
         >
-          <svg 
-            className="w-5 h-5 text-navy-900" 
-            fill="none" 
-            stroke="currentColor" 
+          <svg
+            className="w-5 h-5 text-navy-900"
+            fill="none"
+            stroke="currentColor"
             strokeWidth={3}
             viewBox="0 0 24 24"
           >
@@ -64,7 +64,7 @@ const FAQItem = ({ question, answer, isOpen, onClick, index }) => {
       </button>
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -94,9 +94,9 @@ const FAQ = () => {
       <div className="triangle triangle-up-lg animate-float-1" style={{ top: '8%', right: '10%' }} />
       <div className="triangle triangle-down animate-float-2" style={{ top: '45%', left: '8%' }} />
       <div className="triangle triangle-up animate-float-3" style={{ bottom: '15%', right: '12%' }} />
-      
+
       <div className="max-w-4xl mx-auto">
-        <motion.div 
+        <motion.div
           className="text-center mb-20"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -110,7 +110,7 @@ const FAQ = () => {
           >
             <span className="text-sm font-semibold text-accent-primary">Got Questions?</span>
           </motion.div>
-          
+
           <h1 className="section-title mb-6">
             Frequently Asked
             <span className="block gradient-text">Questions</span>
@@ -133,7 +133,7 @@ const FAQ = () => {
           ))}
         </div>
 
-        <motion.div 
+        <motion.div
           className="glass-card-premium p-12 text-center relative overflow-hidden"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -141,24 +141,24 @@ const FAQ = () => {
           transition={{ duration: 0.6 }}
         >
           {/* Background Pattern */}
-          <div className="absolute inset-0 triangle-pattern opacity-20" />
-          
+          {/* <div className="absolute inset-0 triangle-pattern opacity-20" /> */}
+
           {/* Gradient Accents */}
           <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-accent-primary/20 to-transparent rounded-full blur-2xl" />
           <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-blue-500/20 to-transparent rounded-full blur-2xl" />
-          
+
           <div className="relative z-10">
             <div className="w-16 h-16 bg-gradient-to-br from-accent-primary to-accent-deep rounded-2xl flex items-center justify-center mx-auto mb-6">
               <svg className="w-8 h-8 text-navy-900" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </div>
-            
+
             <h3 className="text-3xl font-black mb-4">Still have questions?</h3>
             <p className="text-gray-400 mb-8 text-lg">
               Can't find the answer you're looking for? Please reach out to our team
             </p>
-            <motion.button 
+            <motion.button
               className="btn-primary"
               onClick={handleContactSupport}
               whileHover={{ scale: 1.05 }}

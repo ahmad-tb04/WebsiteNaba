@@ -23,9 +23,9 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <motion.img 
-              src="/naba-logo.png" 
-              alt="Naba" 
+            <motion.img
+              src="/NabaLogo.png"
+              alt="Naba"
               className="h-10 md:h-12 w-auto"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
@@ -39,8 +39,8 @@ const Navbar = () => {
                 key={link.path}
                 to={link.path}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300
-                  ${isActive(link.path) 
-                    ? 'text-accent bg-accent/10' 
+                  ${isActive(link.path)
+                    ? 'text-accent bg-accent/10'
                     : 'text-gray-300 hover:text-white hover:bg-white/5'
                   }`}
               >
@@ -69,7 +69,7 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             className="md:hidden bg-navy-900/95 backdrop-blur-lg border-b border-white/10"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
@@ -88,8 +88,8 @@ const Navbar = () => {
                     to={link.path}
                     onClick={() => setIsOpen(false)}
                     className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300
-                      ${isActive(link.path) 
-                        ? 'text-accent bg-accent/10' 
+                      ${isActive(link.path)
+                        ? 'text-accent bg-accent/10'
                         : 'text-gray-300 hover:text-white hover:bg-white/5'
                       }`}
                   >

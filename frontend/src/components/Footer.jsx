@@ -12,16 +12,16 @@ const Footer = () => {
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <Link to="/">
-              <motion.img 
-                src="/naba-logo.png" 
-                alt="Naba" 
+              <motion.img
+                src="/NabaLogo.png"
+                alt="Naba"
                 className="h-12 w-auto mb-6"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
               />
             </Link>
             <p className="text-gray-400 max-w-md leading-relaxed">
-              AI-powered inventory intelligence for smarter, faster decisions. 
+              AI-powered inventory intelligence for smarter, faster decisions.
               Optimize stock, reduce losses, and forecast demand with high accuracy.
             </p>
           </div>
