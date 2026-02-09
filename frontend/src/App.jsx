@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Layout from './components/Layout';
-import Home from './pages/Home';
-import FAQ from './pages/FAQ';
-import About from './pages/About';
-import Testimonials from './pages/Testimonials';
-import Partners from './pages/Partners';
-import Problems from './pages/Problems';
-import AdminLogin from './pages/admin/Login';
-import AdminDashboard from './pages/admin/Dashboard';
+import Layout from './components/Layout.jsx';
+import Home from './pages/Home.jsx';
+import FAQ from './pages/FAQ.jsx';
+import About from './pages/About.jsx';
+import Testimonials from './pages/Testimonials.jsx';
+import Partners from './pages/Partners.jsx';
+import Problems from './pages/Problems.jsx';
+import AdminLogin from './pages/admin/Login.jsx';
+import AdminDashboard from './pages/admin/Dashboard.jsx';
 
 function App() {
   return (

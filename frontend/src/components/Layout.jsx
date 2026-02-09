@@ -1,7 +1,7 @@
 import React from 'react';
-import Navbar from './Navbar';
-import Footer from './Footer';
-import AnimatedBackground from './AnimatedBackground';
+import Navbar from './Navbar.jsx';
+import Footer from './Footer.jsx';
+import AnimatedBackground from './AnimatedBackground.jsx';
 
 const Layout = ({ children }) => {
   return (
