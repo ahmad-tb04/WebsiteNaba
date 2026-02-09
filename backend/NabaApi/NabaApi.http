@@ -1,0 +1,6 @@
+@NabaApi_HostAddress = http://localhost:5100
+
+GET {{NabaApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
