@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Users } from 'lucide-react';
 
 // Static partners data
 const partners = [
@@ -32,17 +33,15 @@ const PartnerCard = ({ partner, index }) => {
       <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       <div className="relative z-10">
-        <motion.div
+        <div
           className={`w-24 h-24 ${partner.logo ? 'bg-white' : `bg-gradient-to-br ${partner.color}`} rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg overflow-hidden`}
-          whileHover={{ scale: 1.1, rotate: 5 }}
-          transition={{ duration: 0.3 }}
         >
           {partner.logo ? (
             <img src={partner.logo} alt={partner.name} className="w-20 h-20 object-contain" />
           ) : (
             <span className="text-3xl font-black text-white">{getInitials(partner.name)}</span>
           )}
-        </motion.div>
+        </div>
 
         <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent-light transition-colors">{partner.name}</h3>
         <p className="text-sm text-accent-primary font-medium px-4 py-1 bg-accent-primary/10 rounded-full inline-block border border-accent-primary/20">
@@ -69,15 +68,6 @@ const Partners = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <motion.div
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-lg border border-accent-primary/30 rounded-full px-6 py-2 mb-8"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <span className="text-sm font-semibold text-accent-primary">Our Network</span>
-          </motion.div>
-
           <h1 className="section-title mb-6">
             Our Trusted
             <span className="block gradient-text">Partners</span>
@@ -103,15 +93,12 @@ const Partners = () => {
           transition={{ duration: 0.6 }}
         >
           {/* Background Elements */}
-          {/* <div className="absolute inset-0 triangle-pattern opacity-20" /> */}
           <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-accent-primary/20 to-transparent rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-blue-500/20 to-transparent rounded-full blur-3xl" />
 
           <div className="relative z-10">
             <div className="w-20 h-20 bg-gradient-to-br from-accent-primary to-accent-deep rounded-2xl flex items-center justify-center mx-auto mb-8 glow-accent">
-              <svg className="w-10 h-10 text-navy-900" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
+              <Users className="w-10 h-10 text-navy-900" />
             </div>
 
             <h2 className="text-4xl md:text-5xl font-black mb-6">

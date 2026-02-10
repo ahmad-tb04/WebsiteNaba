@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { supabase } from '../config/supabaseClient';
+import { Plus, Check, X, Loader2 } from 'lucide-react';
 
 const TestimonialCard = ({ testimonial, index }) => {
   const personName = testimonial.person_name || testimonial.personName || 'Anonymous';
@@ -18,25 +19,29 @@ const TestimonialCard = ({ testimonial, index }) => {
       {/* Triangle Accent */}
       <div className="absolute bottom-0 left-0 triangle triangle-up opacity-[0.08] group-hover:opacity-[0.15] transition-opacity" />
 
-      {/* Header: Name, Role, Company */}
-      <div className="flex items-center gap-4 mb-6">
-        {/* Initial Badge */}
-        <div className="w-12 h-12 bg-gradient-to-br from-accent-primary to-accent-deep rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
-          <span className="text-xl font-bold text-navy-900">{personName[0]?.toUpperCase()}</span>
-        </div>
+      {/* Gradient Overlay on Hover */}
+      <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
+      {/* Quote mark */}
+      <div className="relative z-10">
+        <div className="text-accent-primary/30 text-6xl font-serif leading-none mb-4">"</div>
+
+        {/* Testimonial Content */}
+        <p className="text-gray-300 leading-relaxed text-base mb-6">
+          {testimonial.content}
+        </p>
+
+        {/* Divider */}
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-6" />
+
+        {/* Author Info */}
         <div>
-          <h4 className="text-xl font-bold text-white">{personName}</h4>
-          <p className="text-sm text-gray-400">
-            {role}{role && companyName ? ' · ' : ''}{companyName}
+          <h4 className="text-lg font-bold text-white">{personName}</h4>
+          <p className="text-sm text-accent-primary font-medium">
+            {role}{role && companyName ? ' at ' : ''}{companyName}
           </p>
         </div>
       </div>
-
-      {/* Testimonial Content */}
-      <p className="text-gray-300 leading-relaxed text-base">
-        "{testimonial.content}"
-      </p>
     </motion.div>
   );
 };
@@ -111,7 +116,6 @@ const Testimonials = () => {
           content: ''
         });
         setShowForm(false);
-        // Refresh testimonials to show the new one
         fetchTestimonials();
       }
     } catch (error) {
@@ -142,16 +146,7 @@ const Testimonials = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <motion.div
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-lg border border-accent-primary/30 rounded-full px-6 py-2 mb-8"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <span className="text-sm font-semibold text-accent-primary">Client Stories</span>
-          </motion.div>
-
-          <h1 className="section-title mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight">
             What Our Clients
             <span className="block gradient-text">Say About Us</span>
           </h1>
@@ -165,8 +160,8 @@ const Testimonials = () => {
           {message && !showForm && (
             <motion.div
               className={`max-w-2xl mx-auto mb-12 p-4 rounded-2xl text-center ${messageType === 'success'
-                  ? 'bg-green-500/20 text-green-300 border border-green-500/30'
-                  : 'bg-red-500/20 text-red-300 border border-red-500/30'
+                ? 'bg-green-500/20 text-green-300 border border-green-500/30'
+                : 'bg-red-500/20 text-red-300 border border-red-500/30'
                 }`}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -175,13 +170,9 @@ const Testimonials = () => {
             >
               <div className="flex items-center justify-center gap-3">
                 {messageType === 'success' ? (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                  <Check className="w-6 h-6" />
                 ) : (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
+                  <X className="w-6 h-6" />
                 )}
                 <span className="font-medium">{message}</span>
               </div>
@@ -192,7 +183,7 @@ const Testimonials = () => {
         {/* Testimonials Grid */}
         {loading ? (
           <div className="text-center py-12">
-            <div className="animate-spin w-10 h-10 border-4 border-accent-primary border-t-transparent rounded-full mx-auto"></div>
+            <Loader2 className="w-10 h-10 text-accent-primary animate-spin mx-auto" />
           </div>
         ) : testimonials.length > 0 ? (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
@@ -229,9 +220,7 @@ const Testimonials = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-              </svg>
+              <Plus className="w-5 h-5" />
               Share Your Experience
             </motion.button>
           ) : (
@@ -251,9 +240,7 @@ const Testimonials = () => {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+                    <X className="w-5 h-5 text-gray-400" />
                   </motion.button>
                 </div>
 
@@ -336,7 +323,7 @@ const Testimonials = () => {
                     >
                       {submitting ? (
                         <span className="flex items-center justify-center gap-2">
-                          <div className="animate-spin w-5 h-5 border-2 border-navy-900 border-t-transparent rounded-full"></div>
+                          <Loader2 className="w-5 h-5 animate-spin" />
                           Submitting...
                         </span>
                       ) : 'Submit Testimonial'}

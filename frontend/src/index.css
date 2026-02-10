@@ -152,7 +152,7 @@ body {
   width: 0;
   height: 0;
   border-style: solid;
-  opacity: 0.08;
+  opacity: 0.18;
   pointer-events: none;
   z-index: 0;
   will-change: transform, opacity;
@@ -210,7 +210,7 @@ body {
     linear-gradient(30deg, transparent 0%, transparent 48%, var(--accent-primary) 49%, var(--accent-primary) 51%, transparent 52%, transparent 100%),
     linear-gradient(-30deg, transparent 0%, transparent 48%, var(--accent-primary) 49%, var(--accent-primary) 51%, transparent 52%, transparent 100%);
   background-size: 60px 104px;
-  opacity: 0.03;
+  opacity: 0.08;
 }
 
 /* Advanced Animations */

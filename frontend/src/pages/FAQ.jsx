@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, Mail } from 'lucide-react';
 
 const faqData = [
   {
@@ -51,15 +52,7 @@ const FAQItem = ({ question, answer, isOpen, onClick, index }) => {
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
         >
-          <svg
-            className="w-5 h-5 text-navy-900"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={3}
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-          </svg>
+          <ChevronDown className="w-5 h-5 text-navy-900" />
         </motion.div>
       </button>
       <AnimatePresence>
@@ -82,7 +75,7 @@ const FAQItem = ({ question, answer, isOpen, onClick, index }) => {
 };
 
 const FAQ = () => {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(null);
 
   const handleContactSupport = () => {
     window.location.href = 'mailto:ahmad@naba-jo.com';
@@ -127,7 +120,7 @@ const FAQ = () => {
               question={faq.question}
               answer={faq.answer}
               isOpen={openIndex === index}
-              onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
+              onClick={() => setOpenIndex(openIndex === index ? null : index)}
               index={index}
             />
           ))}
@@ -140,18 +133,13 @@ const FAQ = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          {/* Background Pattern */}
-          {/* <div className="absolute inset-0 triangle-pattern opacity-20" /> */}
-
           {/* Gradient Accents */}
           <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-accent-primary/20 to-transparent rounded-full blur-2xl" />
           <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-blue-500/20 to-transparent rounded-full blur-2xl" />
 
           <div className="relative z-10">
             <div className="w-16 h-16 bg-gradient-to-br from-accent-primary to-accent-deep rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <svg className="w-8 h-8 text-navy-900" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
+              <Mail className="w-8 h-8 text-navy-900" />
             </div>
 
             <h3 className="text-3xl font-black mb-4">Still have questions?</h3>
