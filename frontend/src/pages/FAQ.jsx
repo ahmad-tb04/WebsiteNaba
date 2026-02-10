@@ -78,7 +78,7 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
   const handleContactSupport = () => {
-    window.location.href = 'mailto:ahmad@naba-jo.com';
+    window.location.href = 'mailto:ahmad81.tbakhi@gmail.com';
   };
 
   return (
@@ -95,14 +95,7 @@ const FAQ = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <motion.div
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-lg border border-accent-primary/30 rounded-full px-6 py-2 mb-8"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <span className="text-sm font-semibold text-accent-primary">Got Questions?</span>
-          </motion.div>
+
 
           <h1 className="section-title mb-6">
             Frequently Asked
@@ -152,7 +145,7 @@ const FAQ = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
-              Contact Support
+              Contact Us
             </motion.button>
           </div>
         </motion.div>

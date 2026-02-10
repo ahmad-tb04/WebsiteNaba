@@ -4,7 +4,7 @@ import { Users } from 'lucide-react';
 
 // Static partners data
 const partners = [
-  { name: "Hashemite University", category: "Education", color: "from-blue-600 to-blue-800", logo: "/Htu.png" },
+  { name: "Al Hussain Technical University", category: "Education", color: "from-blue-600 to-blue-800", logo: "/Htu.png" },
   { name: "TechCorp Industries", category: "Manufacturing", color: "from-accent-primary to-accent-deep" },
   { name: "Global Logistics Co.", category: "Logistics", color: "from-blue-500 to-blue-700" },
   { name: "RetailMax", category: "Retail", color: "from-accent-dark to-orange-600" },

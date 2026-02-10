@@ -9,7 +9,7 @@ const teamMembers = [
     description: "Specializes in machine learning models and AI architecture design.",
     initial: "SA",
     color: "from-accent-primary to-accent-deep",
-    linkedin: ""
+    linkedin: "#"
   },
   {
     name: "Ola Amro",
@@ -17,7 +17,7 @@ const teamMembers = [
     description: "Expert in systems optimization and process engineering.",
     initial: "OA",
     color: "from-blue-500 to-blue-700",
-    linkedin: ""
+    linkedin: "#"
   },
   {
     name: "Aws Abwini",
@@ -25,7 +25,7 @@ const teamMembers = [
     description: "Cloud infrastructure and security specialist.",
     initial: "AA",
     color: "from-accent-dark to-accent-deep",
-    linkedin: ""
+    linkedin: "#"
   },
   {
     name: "Raneem Khanji",
@@ -33,7 +33,7 @@ const teamMembers = [
     description: "Data scientist focused on AI-driven analytics and insights.",
     initial: "RK",
     color: "from-accent-primary to-yellow-600",
-    linkedin: ""
+    linkedin: "#"
   },
   {
     name: "Ahmad Tbakhi",
@@ -41,7 +41,7 @@ const teamMembers = [
     description: "Full-stack developer with a passion for AI integration.",
     initial: "AT",
     color: "from-blue-600 to-accent-primary",
-    linkedin: ""
+    linkedin: "#"
   }
 ];
 
@@ -72,18 +72,16 @@ const TeamCard = ({ member, index }) => {
           <p className="text-accent-primary text-sm font-semibold mb-3">{member.role}</p>
           <p className="text-gray-400 text-sm leading-relaxed">{member.description}</p>
 
-          {/* LinkedIn Link */}
-          {member.linkedin && (
-            <a
-              href={member.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-4 text-sm text-blue-400 hover:text-blue-300 transition-colors"
-            >
-              <Linkedin className="w-4 h-4" />
-              <span>Connect on LinkedIn</span>
-            </a>
-          )}
+          {/* LinkedIn Link - Always visible */}
+          <a
+            href={member.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-4 text-sm text-accent-primary hover:text-accent-light transition-colors"
+          >
+            <Linkedin className="w-4 h-4" />
+            <span>Connect on LinkedIn</span>
+          </a>
         </div>
       </div>
     </motion.div>
