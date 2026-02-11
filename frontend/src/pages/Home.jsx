@@ -4,7 +4,7 @@ import { Brain, TrendingUp, Package, Boxes, Lightbulb } from 'lucide-react';
 
 const Home = () => {
 
-   const handleContactSupport = () => {
+  const handleContactSupport = () => {
     window.location.href = 'mailto:ahmad81.tbakhi@gmail.com';
   };
 
@@ -12,8 +12,6 @@ const Home = () => {
     <div className="relative overflow-hidden">
       {/* Hero Section */}
       <section className="relative min-h-[95vh] flex items-center justify-center px-4 overflow-hidden">
-        {/* Gradient Background Overlay */}
-        <div className="absolute inset-0 gradient-bg-radial opacity-60" />
 
         <div className="relative z-10 max-w-5xl mx-auto text-center">
           <motion.div
@@ -56,7 +54,7 @@ const Home = () => {
       </section>
 
       {/* Core Feature Section */}
-      <section id="features" className="relative py-32 px-4 bg-gradient-to-b from-transparent to-navy-light/30">
+      <section id="features" className="relative py-32 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-16"
