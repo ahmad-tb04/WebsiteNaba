@@ -141,9 +141,9 @@ const Testimonials = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight">
+          <h1 className="section-title mb-6">
             What Our Clients
-            <span className="block gradient-text">Say About Us</span>
+            <span className="block gradient-text pb-2">Say About Us</span>
           </h1>
           <p className="section-subtitle mx-auto text-gray-400">
             Real feedback from companies using Naba to transform their inventory management
