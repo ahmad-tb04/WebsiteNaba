@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Users } from 'lucide-react';
 
@@ -7,7 +7,7 @@ const partners = [
   { name: "Al Hussain Technical University", category: "Education", color: "from-blue-600 to-blue-800", logo: "/Htu.png" },
   { name: "TechCorp Industries", category: "Manufacturing", color: "from-accent-primary to-accent-deep" },
   { name: "Global Logistics Co.", category: "Logistics", color: "from-blue-500 to-blue-700" },
-  
+
 ];
 
 const PartnerCard = ({ partner, index }) => {
@@ -51,6 +51,7 @@ const PartnerCard = ({ partner, index }) => {
 };
 
 const Partners = () => {
+  useEffect(() => { document.title = 'Partners - Naba'; }, []);
   return (
     <div className="relative py-24 px-4 overflow-hidden">
       {/* Decorative Triangles */}
@@ -82,7 +83,7 @@ const Partners = () => {
           ))}
         </div>
 
-        
+
       </div>
     </div>
   );

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Brain, TrendingUp, Package, Boxes, Lightbulb } from 'lucide-react';
 
 const Home = () => {
+  useEffect(() => { document.title = 'Naba - AI-Powered Inventory Intelligence'; }, []);
+
 
   const handleContactSupport = () => {
     window.location.href = 'mailto:ahmad81.tbakhi@gmail.com';

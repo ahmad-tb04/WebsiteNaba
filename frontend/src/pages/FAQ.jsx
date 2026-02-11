@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Mail } from 'lucide-react';
 
@@ -75,6 +75,7 @@ const FAQItem = ({ question, answer, isOpen, onClick, index }) => {
 };
 
 const FAQ = () => {
+  useEffect(() => { document.title = 'FAQ - Naba'; }, []);
   const [openIndex, setOpenIndex] = useState(null);
 
   const handleContactSupport = () => {

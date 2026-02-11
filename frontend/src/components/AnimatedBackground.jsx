@@ -1,5 +1,3 @@
-import React from 'react';
-
 const AnimatedBackground = () => {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0" style={{ willChange: 'transform', transform: 'translateZ(0)' }}>

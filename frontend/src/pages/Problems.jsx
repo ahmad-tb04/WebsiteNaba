@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Package, Ban, BarChart3, AlertCircle, Brain, BoxSelect, Link2, Lightbulb } from 'lucide-react';
@@ -81,6 +81,7 @@ const ProblemCard = ({ problem, index }) => {
 };
 
 const Problems = () => {
+  useEffect(() => { document.title = 'Problems We Solve - Naba'; }, []);
   return (
     <div className="relative py-24 px-4 overflow-hidden">
       {/* Decorative Triangles */}

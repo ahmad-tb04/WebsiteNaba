@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Zap } from 'lucide-react';
 const teamMembers = [
@@ -9,7 +9,7 @@ const teamMembers = [
     description: "Specializes in machine learning models and AI architecture design.",
     initial: "SA",
     color: "from-accent-primary to-accent-deep",
-    
+
     linkedin: "https://www.linkedin.com/in/shamma-al-khawaldeh/"
   },
   {
@@ -19,7 +19,7 @@ const teamMembers = [
     description: "Expert in systems optimization and process engineering.",
     initial: "OA",
     color: "from-blue-500 to-blue-700",
-    
+
     linkedin: "https://www.linkedin.com/in/ola-amro/"
   },
   {
@@ -29,7 +29,7 @@ const teamMembers = [
     description: "Cloud infrastructure and security specialist.",
     initial: "AA",
     color: "from-accent-dark to-accent-deep",
-    
+
     linkedin: "https://www.linkedin.com/in/aws-abwini-47961a265/"
   },
   {
@@ -39,7 +39,7 @@ const teamMembers = [
     description: "Data scientist focused on AI-driven analytics and insights.",
     initial: "RK",
     color: "from-accent-primary to-yellow-600",
-    
+
     linkedin: "https://www.linkedin.com/in/raneemkhanji/"
   },
   {
@@ -49,7 +49,7 @@ const teamMembers = [
     description: "Full-stack developer with a passion for AI integration.",
     initial: "AT",
     color: "from-blue-600 to-accent-primary",
-   
+
     linkedin: "https://www.linkedin.com/in/ahmad-tbakhi-085694338/"
   }
 ];
@@ -86,7 +86,7 @@ const TeamCard = ({ member, index }) => {
         {/* Description */}
         <p className="text-gray-400 text-sm leading-relaxed mb-6">{member.description}</p>
 
-        
+
         {/* LinkedIn */}
         <a
           href={member.linkedin}
@@ -103,6 +103,7 @@ const TeamCard = ({ member, index }) => {
 };
 
 const About = () => {
+  useEffect(() => { document.title = 'About Us - Naba'; }, []);
   return (
     <div className="relative py-24 px-4 overflow-hidden">
       {/* Decorative Triangles */}

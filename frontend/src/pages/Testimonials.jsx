@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { supabase } from '../config/supabaseClient';
 import { Plus, Check, X, Loader2 } from 'lucide-react';
 
-const TestimonialCard = ({ testimonial, index }) => {
+const TestimonialCard = memo(({ testimonial, index }) => {
   const personName = testimonial.person_name || testimonial.personName || 'Anonymous';
   const companyName = testimonial.company_name || testimonial.companyName || '';
   const role = testimonial.role || '';
@@ -39,14 +39,15 @@ const TestimonialCard = ({ testimonial, index }) => {
       </div>
     </motion.div>
   );
-};
+});
 
 const Testimonials = () => {
+  useEffect(() => { document.title = 'Testimonials - Naba'; }, []);
   const [testimonials, setTestimonials] = useState([]);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState('');
-  const [messageType, setMessageType] = useState(''); // 'success' or 'error'
+  const [messageType, setMessageType] = useState('');
   const [showForm, setShowForm] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -122,9 +123,10 @@ const Testimonials = () => {
     }
   };
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleChange = useCallback((e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  }, []);
 
   return (
     <div className="relative py-24 px-4 overflow-hidden">
