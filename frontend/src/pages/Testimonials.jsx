@@ -13,8 +13,9 @@ const TestimonialCard = ({ testimonial, index }) => {
       className="glass-card p-8 hover-lift relative overflow-hidden group"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -8 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
     >
       {/* Triangle Accent */}
       <div className="absolute bottom-0 left-0 triangle triangle-up opacity-[0.08] group-hover:opacity-[0.15] transition-opacity" />

@@ -23,8 +23,9 @@ const PartnerCard = ({ partner, index }) => {
       className="glass-card-premium p-8 text-center hover-lift relative overflow-hidden group"
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
+      whileHover={{ y: -8 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
     >
       {/* Triangle Accent */}
       <div className="absolute top-0 left-0 triangle triangle-up-lg opacity-[0.08] group-hover:opacity-[0.15] transition-opacity" />

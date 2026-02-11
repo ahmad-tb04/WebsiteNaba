@@ -59,8 +59,9 @@ const ProblemCard = ({ problem, index }) => {
       className="glass-card-premium p-8 hover-lift relative overflow-hidden group"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -8 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
     >
       {/* Triangle Accent */}
       <div className="absolute bottom-0 right-0 triangle triangle-up opacity-[0.15] group-hover:opacity-25 transition-opacity" style={{ borderColor: 'transparent transparent #ef4444 transparent' }} />
@@ -134,8 +135,9 @@ const Problems = () => {
               className="glass-card p-8 hover-lift flex items-start gap-5 group"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
+              whileHover={{ y: -8 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
             >
               <div className="w-12 h-12 bg-accent-primary/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform border border-accent-primary/30">
                 {solution.icon}

@@ -51,8 +51,9 @@ const TeamCard = ({ member, index }) => {
       className="glass-card-premium p-8 hover-lift relative overflow-hidden group"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -8 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
     >
       {/* Triangle Accent */}
       <div className="absolute top-0 right-0 triangle triangle-down opacity-20 group-hover:opacity-30 transition-opacity" />

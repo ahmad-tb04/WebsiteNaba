@@ -83,11 +83,12 @@ const Home = () => {
                 ].map((feature, index) => (
                   <motion.div
                     key={index}
-                    className="flex flex-col items-center text-center"
+                    className="flex flex-col items-center text-center hover-lift cursor-pointer"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
+                    whileHover={{ y: -8 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.3 + index * 0.15 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
                   >
                     <div className="w-16 h-16 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl flex items-center justify-center mb-4">
                       <feature.icon className="w-8 h-8 text-accent-primary" />
@@ -155,8 +156,9 @@ const Home = () => {
                 className="glass-card p-10 hover-lift relative group"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -8 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
 
