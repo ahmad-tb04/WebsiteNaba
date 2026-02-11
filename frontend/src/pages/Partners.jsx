@@ -7,10 +7,7 @@ const partners = [
   { name: "Al Hussain Technical University", category: "Education", color: "from-blue-600 to-blue-800", logo: "/Htu.png" },
   { name: "TechCorp Industries", category: "Manufacturing", color: "from-accent-primary to-accent-deep" },
   { name: "Global Logistics Co.", category: "Logistics", color: "from-blue-500 to-blue-700" },
-  { name: "RetailMax", category: "Retail", color: "from-accent-dark to-orange-600" },
-  { name: "SupplyChain Pro", category: "Supply Chain", color: "from-blue-600 to-accent-primary" },
-  { name: "Warehouse Solutions", category: "Warehousing", color: "from-accent-light to-accent-dark" },
-  { name: "Smart Inventory Ltd.", category: "Technology", color: "from-blue-400 to-blue-600" },
+  
 ];
 
 const PartnerCard = ({ partner, index }) => {
@@ -85,39 +82,7 @@ const Partners = () => {
           ))}
         </div>
 
-        {/* Become a Partner CTA */}
-        <motion.div
-          className="glass-card-premium p-12 md:p-16 text-center max-w-4xl mx-auto relative overflow-hidden"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          {/* Background Elements */}
-          <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-accent-primary/20 to-transparent rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-blue-500/20 to-transparent rounded-full blur-3xl" />
-
-          <div className="relative z-10">
-            <div className="w-20 h-20 bg-gradient-to-br from-accent-primary to-accent-deep rounded-2xl flex items-center justify-center mx-auto mb-8 glow-accent">
-              <Users className="w-10 h-10 text-navy-900" />
-            </div>
-
-            <h2 className="text-4xl md:text-5xl font-black mb-6">
-              Become a <span className="gradient-text">Partner</span>
-            </h2>
-            <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Join our network of industry partners and help transform inventory management
-              for businesses worldwide
-            </p>
-            <motion.button
-              className="btn-primary text-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Partner With Us
-            </motion.button>
-          </div>
-        </motion.div>
+        
       </div>
     </div>
   );

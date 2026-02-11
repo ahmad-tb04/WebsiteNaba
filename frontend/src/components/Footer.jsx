@@ -75,9 +75,9 @@ const Footer = () => {
           <p className="text-gray-500 text-sm">
             © {currentYear} Naba. All rights reserved.
           </p>
-          <p className="text-gray-500 text-sm">
-            Built by HTU Students
-          </p>
+          <p  className="text-gray-500 text-sm">
+             Built by HTU Students
+          </ p>
         </div>
       </div>
     </footer>
