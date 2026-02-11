@@ -63,8 +63,8 @@ const ProblemCard = ({ problem, index }) => {
       viewport={{ once: true }}
       transition={{ duration: 0.3, ease: "easeOut" }}
     >
-      {/* Triangle Accent */}
-      <div className="absolute bottom-0 right-0 triangle triangle-up opacity-[0.15] group-hover:opacity-25 transition-opacity" style={{ borderColor: 'transparent transparent #ef4444 transparent' }} />
+      {/* Triangle Accent
+      <div className="absolute bottom-0 right-0 triangle triangle-up opacity-[0.15] group-hover:opacity-25 transition-opacity" style={{ borderColor: 'transparent transparent #ef4444 transparent' }} /> */}
 
       <div className="relative z-10">
         <div className="w-16 h-16 bg-red-500/20 rounded-2xl flex items-center justify-center mb-6 text-red-400 group-hover:scale-110 transition-transform backdrop-blur-sm border border-red-500/30">
