@@ -3,6 +3,11 @@ import { motion } from 'framer-motion';
 import { Brain, TrendingUp, Package, Boxes, Lightbulb } from 'lucide-react';
 
 const Home = () => {
+
+   const handleContactSupport = () => {
+    window.location.href = 'mailto:ahmad81.tbakhi@gmail.com';
+  };
+
   return (
     <div className="relative overflow-hidden">
       {/* Hero Section */}
@@ -75,7 +80,7 @@ const Home = () => {
           >
             <div className="relative z-10">
               {/* 3 Icons Row */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-10">
                 {[
                   { icon: Brain, label: 'AI-Powered Demand Forecasting' },
                   { icon: TrendingUp, label: 'Dynamic Lead-Time Prediction' },
@@ -83,15 +88,15 @@ const Home = () => {
                 ].map((feature, index) => (
                   <motion.div
                     key={index}
-                    className="flex flex-col items-center text-center hover-lift cursor-pointer"
+                    className="flex flex-col items-center text-center cursor-pointer group/item"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    whileHover={{ y: -8 }}
+                    whileHover={{ y: -10, scale: 1.05 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
                   >
-                    <div className="w-16 h-16 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl flex items-center justify-center mb-4">
-                      <feature.icon className="w-8 h-8 text-accent-primary" />
+                    <div className="w-20 h-20 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl flex items-center justify-center mb-5 group-hover/item:shadow-[0_4px_20px_rgba(251,191,36,0.3)] transition-all duration-500">
+                      <feature.icon className="w-10 h-10 text-accent-primary" />
                     </div>
                     <h4 className="text-base md:text-lg font-bold text-white">{feature.label}</h4>
                   </motion.div>
@@ -197,6 +202,7 @@ const Home = () => {
               </p>
               <motion.button
                 className="btn-primary text-lg"
+                onClick={handleContactSupport}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >

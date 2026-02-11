@@ -84,7 +84,7 @@ const FAQ = () => {
   return (
     <div className="relative py-24 px-4 overflow-hidden">
       {/* Decorative Triangles */}
-      <div className="triangle triangle-up-lg animate-float-1" style={{ top: '8%', right: '10%' }} />
+      <div className="triangle triangle-down-lg animate-float-1" style={{ top: '8%', right: '10%' }} />
       <div className="triangle triangle-down animate-float-2" style={{ top: '45%', left: '8%' }} />
       <div className="triangle triangle-up animate-float-3" style={{ bottom: '15%', right: '12%' }} />
 

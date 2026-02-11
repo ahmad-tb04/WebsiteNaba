@@ -17,31 +17,25 @@ const TestimonialCard = ({ testimonial, index }) => {
       viewport={{ once: true }}
       transition={{ duration: 0.3, ease: "easeOut" }}
     >
-      {/* Triangle Accent */}
-      <div className="absolute bottom-0 left-0 triangle triangle-up opacity-[0.08] group-hover:opacity-[0.15] transition-opacity" />
-
       {/* Gradient Overlay on Hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-      {/* Quote mark */}
       <div className="relative z-10">
-        <div className="text-accent-primary/30 text-6xl font-serif leading-none mb-4">"</div>
-
-        {/* Testimonial Content */}
-        <p className="text-gray-300 leading-relaxed text-base mb-6">
-          {testimonial.content}
-        </p>
-
-        {/* Divider */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-6" />
-
-        {/* Author Info */}
-        <div>
+        {/* Author Info - Top */}
+        <div className="mb-5">
           <h4 className="text-lg font-bold text-white">{personName}</h4>
           <p className="text-sm text-accent-primary font-medium">
             {role}{role && companyName ? ' at ' : ''}{companyName}
           </p>
         </div>
+
+        {/* Divider */}
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-5" />
+
+        {/* Testimonial Content - Bottom */}
+        <p className="text-gray-300 leading-relaxed text-base">
+          {testimonial.content}
+        </p>
       </div>
     </motion.div>
   );
@@ -135,7 +129,7 @@ const Testimonials = () => {
   return (
     <div className="relative py-24 px-4 overflow-hidden">
       {/* Decorative Triangles */}
-      <div className="triangle triangle-up-lg animate-float-1" style={{ top: '10%', right: '8%' }} />
+      <div className="triangle triangle-down-lg animate-float-1" style={{ top: '10%', right: '8%' }} />
       <div className="triangle triangle-down animate-float-2" style={{ top: '50%', left: '5%' }} />
       <div className="triangle triangle-up animate-float-3" style={{ bottom: '15%', right: '12%' }} />
 
@@ -256,7 +250,7 @@ const Testimonials = () => {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-accent-primary/50 focus:bg-white/10 transition-all"
-                        placeholder="John Doe"
+                        placeholder="Your Name"
                       />
                     </div>
                     <div>
@@ -268,7 +262,7 @@ const Testimonials = () => {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-accent-primary/50 focus:bg-white/10 transition-all"
-                        placeholder="Your company"
+                        placeholder="Your Company"
                       />
                     </div>
                   </div>
@@ -283,7 +277,7 @@ const Testimonials = () => {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-accent-primary/50 focus:bg-white/10 transition-all"
-                        placeholder="Operations Manager"
+                        placeholder="Your Role"
                       />
                     </div>
                     <div>
@@ -295,7 +289,7 @@ const Testimonials = () => {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-accent-primary/50 focus:bg-white/10 transition-all"
-                        placeholder="john@company.com"
+                        placeholder="Your Email"
                       />
                       <p className="text-xs text-gray-500 mt-1">Never shared publicly</p>
                     </div>

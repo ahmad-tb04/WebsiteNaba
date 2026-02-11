@@ -28,7 +28,7 @@ const PartnerCard = ({ partner, index }) => {
       transition={{ duration: 0.3, ease: "easeOut" }}
     >
       {/* Triangle Accent */}
-      <div className="absolute top-0 left-0 triangle triangle-up-lg opacity-[0.08] group-hover:opacity-[0.15] transition-opacity" />
+      {/* <div className="absolute top-0 left-0 triangle triangle-up-lg opacity-[0.08] group-hover:opacity-[0.15] transition-opacity" /> */}
 
       {/* Glow Effect on Hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

@@ -1,46 +1,55 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Zap } from 'lucide-react';
-
 const teamMembers = [
   {
     name: "Shamma Al-Khawaldeh",
-    role: "AI Engineering (3rd Year)",
+    major: "AI Engineering",
+    year: "3rd Year",
     description: "Specializes in machine learning models and AI architecture design.",
     initial: "SA",
     color: "from-accent-primary to-accent-deep",
+    
     linkedin: "https://www.linkedin.com/in/shamma-al-khawaldeh/"
   },
   {
     name: "Ola Amro",
-    role: "Mechanical Engineering (5th Year)",
+    major: "Mechanical Engineering",
+    year: "5th Year",
     description: "Expert in systems optimization and process engineering.",
     initial: "OA",
     color: "from-blue-500 to-blue-700",
+    
     linkedin: "https://www.linkedin.com/in/ola-amro/"
   },
   {
     name: "Aws Abwini",
-    role: "Cyber Security (4th Year)",
+    major: "Cyber Security",
+    year: "4th Year",
     description: "Cloud infrastructure and security specialist.",
     initial: "AA",
     color: "from-accent-dark to-accent-deep",
+    
     linkedin: "https://www.linkedin.com/in/aws-abwini-47961a265/"
   },
   {
     name: "Raneem Khanji",
-    role: "AI Engineering (4th Year)",
+    major: "AI Engineering",
+    year: "4th Year",
     description: "Data scientist focused on AI-driven analytics and insights.",
     initial: "RK",
     color: "from-accent-primary to-yellow-600",
+    
     linkedin: "https://www.linkedin.com/in/raneemkhanji/"
   },
   {
     name: "Ahmad Tbakhi",
-    role: "Computer Science (4th Year)",
+    major: "Computer Science",
+    year: "4th Year",
     description: "Full-stack developer with a passion for AI integration.",
     initial: "AT",
     color: "from-blue-600 to-accent-primary",
+   
     linkedin: "https://www.linkedin.com/in/ahmad-tbakhi-085694338/"
   }
 ];
@@ -55,35 +64,39 @@ const TeamCard = ({ member, index }) => {
       viewport={{ once: true }}
       transition={{ duration: 0.3, ease: "easeOut" }}
     >
-      {/* Triangle Accent */}
-      <div className="absolute top-0 right-0 triangle triangle-down opacity-20 group-hover:opacity-30 transition-opacity" />
-
       {/* Gradient Overlay on Hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-      <div className="relative z-10 flex items-start gap-6">
+      <div className="relative z-10">
+        {/* Initial Badge */}
         <div
-          className={`w-20 h-20 bg-gradient-to-br ${member.color} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg`}
+          className={`w-16 h-16 bg-gradient-to-br ${member.color} rounded-2xl flex items-center justify-center shadow-lg mb-5`}
         >
-          <span className="text-3xl font-black text-white">{member.initial}</span>
+          <span className="text-2xl font-black text-white">{member.initial}</span>
         </div>
 
-        <div className="flex-grow">
-          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent-light transition-colors">{member.name}</h3>
-          <p className="text-accent-primary text-sm font-semibold mb-3">{member.role}</p>
-          <p className="text-gray-400 text-sm leading-relaxed">{member.description}</p>
+        {/* Name */}
+        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent-light transition-colors">{member.name}</h3>
 
-          {/* LinkedIn Link - Always visible */}
-          <a
-            href={member.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-4 text-sm text-accent-primary hover:text-accent-light transition-colors"
-          >
-            <Linkedin className="w-4 h-4" />
-            <span>Connect on LinkedIn</span>
-          </a>
-        </div>
+        {/* Major • Year */}
+        <p className="text-accent-primary text-sm font-semibold mb-4">
+          {member.major} <span className="text-gray-500 mx-1">•</span> <span className="text-gray-400 font-normal">{member.year}</span>
+        </p>
+
+        {/* Description */}
+        <p className="text-gray-400 text-sm leading-relaxed mb-6">{member.description}</p>
+
+        
+        {/* LinkedIn */}
+        <a
+          href={member.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-sm text-accent-primary hover:text-accent-light transition-colors"
+        >
+          <Linkedin className="w-4 h-4" />
+          <span>Connect on LinkedIn</span>
+        </a>
       </div>
     </motion.div>
   );
@@ -93,7 +106,7 @@ const About = () => {
   return (
     <div className="relative py-24 px-4 overflow-hidden">
       {/* Decorative Triangles */}
-      <div className="triangle triangle-up-lg animate-float-1" style={{ top: '5%', right: '10%' }} />
+      <div className="triangle triangle-down-lg animate-float-1" style={{ top: '5%', right: '10%' }} />
       <div className="triangle triangle-down-lg animate-float-2" style={{ top: '40%', left: '5%' }} />
       <div className="triangle triangle-up animate-float-3" style={{ bottom: '15%', right: '20%' }} />
 
@@ -150,8 +163,6 @@ const About = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="relative max-w-5xl mx-auto">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 triangle-pattern opacity-30" />
 
             <motion.div
               className="glass-card-premium p-12 md:p-16 relative overflow-hidden hover-lift"
