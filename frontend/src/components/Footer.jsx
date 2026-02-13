@@ -13,7 +13,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <Link to="/">
               <motion.img
-                src="/NabaLogo.png"
+                src="/NabaWhite.png"
                 alt="Naba"
                 className="h-12 w-auto mb-6"
                 whileHover={{ scale: 1.02 }}

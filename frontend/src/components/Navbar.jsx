@@ -24,7 +24,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <motion.img
-              src="/NabaLogo.png"
+              src="/NabaWhite.png"
               alt="Naba"
               className="h-10 md:h-12 w-auto"
               whileHover={{ scale: 1.02 }}
