@@ -17,22 +17,19 @@ const PartnerCard = ({ partner, index }) => {
 
   return (
     <motion.div
-      className="glass-card-premium p-8 text-center hover-lift relative overflow-hidden group"
+      className="glass-card-premium p-8 text-center hover-lift relative overflow-hidden group flex flex-col items-center"
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       whileHover={{ y: -8 }}
       viewport={{ once: true }}
       transition={{ duration: 0.3, ease: "easeOut" }}
     >
-      {/* Triangle Accent */}
-      {/* <div className="absolute top-0 left-0 triangle triangle-up-lg opacity-[0.08] group-hover:opacity-[0.15] transition-opacity" /> */}
-
       {/* Glow Effect on Hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-      <div className="relative z-10">
+      <div className="relative z-10 flex flex-col items-center">
         <div
-          className={`w-24 h-24 ${partner.logo ? 'bg-white' : `bg-gradient-to-br ${partner.color}`} rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg overflow-hidden`}
+          className={`w-24 h-24 ${partner.logo ? 'bg-white' : `bg-gradient-to-br ${partner.color}`} rounded-3xl flex items-center justify-center mb-6 shadow-lg overflow-hidden flex-shrink-0`}
         >
           {partner.logo ? (
             <img src={partner.logo} alt={partner.name} className="w-20 h-20 object-contain" />
@@ -41,10 +38,10 @@ const PartnerCard = ({ partner, index }) => {
           )}
         </div>
 
-        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent-light transition-colors">{partner.name}</h3>
-        <p className="text-sm text-accent-primary font-medium px-4 py-1 bg-accent-primary/10 rounded-full inline-block border border-accent-primary/20">
+        <h3 className="text-lg sm:text-xl font-bold text-white mb-3 group-hover:text-accent-light transition-colors leading-tight">{partner.name}</h3>
+        <span className="text-sm text-accent-primary font-medium px-4 py-1.5 bg-accent-primary/10 rounded-full border border-accent-primary/20 whitespace-nowrap">
           {partner.category}
-        </p>
+        </span>
       </div>
     </motion.div>
   );
@@ -77,7 +74,7 @@ const Partners = () => {
         </motion.div>
 
         {/* Partners Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-24">
           {partners.map((partner, index) => (
             <PartnerCard key={index} partner={partner} index={index} />
           ))}
