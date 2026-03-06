@@ -245,7 +245,7 @@ const Testimonials = () => {
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid md:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">Your Name *</label>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">Your Name</label>
                       <input
                         type="text"
                         name="person_name"
@@ -257,7 +257,7 @@ const Testimonials = () => {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">Company *</label>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">Company</label>
                       <input
                         type="text"
                         name="company_name"
@@ -272,7 +272,7 @@ const Testimonials = () => {
 
                   <div className="grid md:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">Your Role *</label>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">Your Role</label>
                       <input
                         type="text"
                         name="role"
@@ -284,7 +284,7 @@ const Testimonials = () => {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">Email *</label>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">Email</label>
                       <input
                         type="email"
                         name="email"
@@ -299,7 +299,7 @@ const Testimonials = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Your Testimonial *</label>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">Your Testimonial</label>
                     <textarea
                       name="content"
                       value={formData.content}

@@ -159,7 +159,7 @@ const Problems = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <Link to="/">
+          <Link to="/#features">
             <motion.button
               className="btn-primary text-lg"
               whileHover={{ scale: 1.05 }}
