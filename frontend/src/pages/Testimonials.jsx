@@ -33,7 +33,7 @@ const TestimonialCard = memo(({ testimonial, index }) => {
         <div className="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-5" />
 
         {/* Testimonial Content - Bottom */}
-        <p className="text-gray-300 leading-relaxed text-base">
+        <p className="text-gray-300 leading-relaxed text-base whitespace-pre-line">
           {testimonial.content}
         </p>
       </div>
@@ -113,6 +113,7 @@ const Testimonials = () => {
         });
         setShowForm(false);
         fetchTestimonials();
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
       }
     } catch (error) {
       console.error('Submit error:', error);
