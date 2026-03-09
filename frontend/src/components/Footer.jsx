@@ -1,9 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { pathname } = useLocation();
+
+  const handleLinkClick = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  };
+
+  const linkClass = (to) => {
+    const isActive = to === '/' ? pathname === '/' : pathname.startsWith(to);
+    return `${isActive ? 'text-accent' : 'text-gray-400'} hover:text-accent transition-colors duration-200`;
+  };
 
   return (
     <footer className="relative bg-navy-950 border-t border-white/10">
@@ -11,7 +21,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
-            <Link to="/">
+            <Link to="/" onClick={handleLinkClick}>
               <motion.img
                 src="/NabaWhite.png"
                 alt="Naba"
@@ -31,22 +41,22 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-6">Quick Links</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/" className="text-gray-400 hover:text-accent transition-colors duration-200">
+                <Link to="/" className={linkClass('/')} onClick={handleLinkClick}>
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-gray-400 hover:text-accent transition-colors duration-200">
+                <Link to="/about" className={linkClass('/about')} onClick={handleLinkClick}>
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/problems" className="text-gray-400 hover:text-accent transition-colors duration-200">
+                <Link to="/problems" className={linkClass('/problems')} onClick={handleLinkClick}>
                   Problems
                 </Link>
               </li>
               <li>
-                <Link to="/faq" className="text-gray-400 hover:text-accent transition-colors duration-200">
+                <Link to="/faq" className={linkClass('/faq')} onClick={handleLinkClick}>
                   FAQ
                 </Link>
               </li>
@@ -58,12 +68,12 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-6">More</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/partners" className="text-gray-400 hover:text-accent transition-colors duration-200">
+                <Link to="/partners" className={linkClass('/partners')} onClick={handleLinkClick}>
                   Partners
                 </Link>
               </li>
               <li>
-                <Link to="/testimonials" className="text-gray-400 hover:text-accent transition-colors duration-200">
+                <Link to="/testimonials" className={linkClass('/testimonials')} onClick={handleLinkClick}>
                   Testimonials
                 </Link>
               </li>
